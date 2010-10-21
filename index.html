@@ -1,0 +1,110 @@
+<html>
+	<head>
+		<title>Ticking Clock</title>
+		<link rel="stylesheet" href="style.css" media="screen" />
+		<link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="clock.js"></script>
+		
+<script type="text/javascript">
+
+	window.onbeforeunload = function(){ return 'Leaving this page will cause the clocks to stop and the clock status is not currently saved. It\'s up to you!';}
+
+	$(document).ready(function() {
+		$(".timer_buttons a").click(function() {
+			var time = $(this).attr("name");
+			console.log(time);
+			$("#total_minutes").text(time);
+			resetClock(true);
+			return false;
+		});
+		/*$("#bg_rotate").click(function() {
+			resetClock();
+		});*/
+			
+		$("#toggle_link").toggle(function() {
+			$(this).text("Close This Panel");
+			$("#header").animate({
+				marginTop: 0
+			},'slow')
+		},function() {
+			$(this).text("Advanced Options");
+			$(("#header")).animate({
+				marginTop: -80
+			},'slow')
+		});
+	});
+    </script> <script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-7133211-12']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+	</head>
+	
+	<body>
+	<div id="bg_overlay"></div>
+		<div id="header">
+			<div id="header_content">
+				
+				<div class="header_form">
+					<table class="form">
+						<tr>
+							<td>Rotate Background</td><td><input type="checkbox" name="bg_rotate" id="bg_rotate" checked="checked" /></td>
+						</tr>
+						<tr>
+							<td>Background Change Interval (in seconds)</td><td><input type="text" size="3" name="bg_interval" id="bg_interval" value="30" /></td>
+						</tr>
+						<!--
+                        <tr>
+							<td>Custom Time on Clock (in minutes)</td><td><input type="text" size="3" name="custom_time" id="custom_time" value="30" /></td>
+						</tr>
+                        -->
+					</table>
+				</div>
+				
+				<div id="logo">
+					<img src="logo.png" alt="workatickomatic" title="workatickomatic" />
+				</div>
+				<div id="toggle">
+					<a href="#" id="toggle_link">Advanced Options</a>
+				</div>
+			</div>
+			<!--<div class="direction_buttons">
+				<a href="#" id="clock_direction_down">Count Down</a>
+				<a href="#" id="clock_direction_up">Count Up</a>
+			</div>-->
+			<div class="clear"></div>
+		</div>
+		<div id="black_shade"></div>
+		<div id="total_minutes" style="display:none;">60</div>
+		<div id="current_bg" style="display:none;">1</div>
+		<div id="bg_overlay_set" style="display:none;">0</div>
+		<div id="bg_interval_set" style="display:none;">0</div>
+		<div id="bg_interval_time" style="display:none;">30</div>
+		<div class="timer_buttons">
+			<a href="#" name="15" id="timer_15">15</a>
+			<a href="#" name="30" id="timer_30">30</a>
+			<a href="#" name="45" id="timer_45">45</a>
+			<a href="#" name="60" id="timer_60">60</a>
+			<div class="clear"></div>
+		</div>
+		<div class="clock_area">
+			<span id="clock_hour">Hr</span>:<span id="clock_minute">Min</span>:<span id="clock_second">Sec</span>
+		</div>
+		
+		<script type="text/javascript">
+			init();
+		</script>
+        
+        
+	</body>
+</html>
