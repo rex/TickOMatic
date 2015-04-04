@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="http://i.imgur.com/9Mze1BM.png" />
+</p>
+
+
 #TickoMatic
 ###The next generation relaxation and focusing tool for the busy bee with time management issues.
 ####With the ability to gently scroll the background between relaxing images and the ability to change how quickly it scrolls, as well as the white/brown/ambient noise machine coming in the near future, this package is all you need to get refocused!
